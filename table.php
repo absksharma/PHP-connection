@@ -20,43 +20,41 @@ mysqli_close($conn);
 <head>
     <meta charset="UTF-8">
     <title>SHOW DATABASE</title>
-
 <style>
 
 .split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 0px;
+height: 100%;
+width: 50%;
+position: fixed;
+z-index: 1;
+top: 0;
+overflow-x: hidden;
+padding-top: 0px;
 }
 
 /* Control the left side */
 .left {
-  left: 0;
+left: 0;
 }
 
 /* Control the right side */
 .right {
-  right: 0;
+right: 0;
 }
 
 /* If you want the content centered horizontally and vertically */
 .centered {
-  position: absolute;
-  top: 47%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+position: absolute;
+top: 47%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
 }
 table {
             margin: 0 auto;
             font-size: large;
             border: 1px solid black;
         }
-  
         h1 {
             text-align: center;
             color: #006600;
@@ -71,12 +69,10 @@ table {
             font-family: 'Gill Sans', 'Gill Sans MT', 
             ' Calibri', 'Trebuchet MS', 'sans-serif';
         }
-  
         td {
             background-color: #E4F5D4;
             border: 1px solid black;
         }
-  
         th,
         td {
             font-weight: bold;
@@ -84,18 +80,16 @@ table {
             padding: 10px;
             text-align: center;
         }
-  
         td {
             font-weight: lighter;
         }
 </style>
 </head>
-  
 <body>
 <div class="split left">
 <div class="centered">
 <h2>-INSERT-</h2>
-    <form action="save.php" method="GET" target="_self" >
+    <form action="save.php" method="POST" target="_self" >
         ID  <input type="text" name="id" id="id" required /><br /><br />
         NAME  <input type="text" name="name" id="name" required/><br /><br />
         MARKS  <input type="text" name="marks" id="marks" required/><br /><br />
@@ -104,25 +98,32 @@ table {
     <br>
     <hr class="rounded">
 <h2>-DELETE-</h2>
-    <form  action="delete.php" method="GET">
+    <form  action="delete.php" method="POST">
         NAME  <input type="text" name="name" name="name" placeholder=" Where name is :" /><br /><br />
         <input type="submit" value="DELETE DATA"/>
     </form> 
     <br>
     <hr class="rounded">
 <h2>-UPDATE NAME-</h2>
-    <form  action="update.php" method="GET">
+    <form  action="update.php" method="POST">
     NAME  <input type="text" name="name" name="name" placeholder=" New Name " required /><br /><br />
     User ID  <input type="text" name="id" id="id" placeholder="where ID is" required /><br /><br />
         <input type="submit" value="Update Name"/>
     </form> 
+
+    <h2>-SEARCH-</h2>
+    <form  action="search.php" method="POST">
+    ID  <input type="text" name="id" id="id" placeholder=" Search By ID " required /><br /><br />
+        <input type="submit" value="Search Name"/>
+    </form> 
+
 </body>
 </div>
 </div>
 
 <div class="split right">
-  <div class="centered">
-  <section>
+<div class="centered">
+<section>
         <h1>Live User's DATA</h1>
         <!-- TABLE CONSTRUCTION-->
         <table>
@@ -135,7 +136,7 @@ table {
             <?php   // LOOP TILL END OF DATA 
                 while($rows=$result->fetch_assoc())
                 {
-             ?>
+                    ?>
             <tr>
                 <!--FETCHING DATA FROM EACH 
                     ROW OF EVERY COLUMN-->
@@ -144,11 +145,10 @@ table {
                 <td><?php echo $rows['marks'];?></td>
             </tr>
             <?php
-                }
-             ?>
+            }
+            ?>
         </table>
     </section>
-  </div>
 </div>
-
+</div>
 </html>

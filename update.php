@@ -1,8 +1,8 @@
 <?php
 // $response=array();
 
-$name=$_GET["name"];
-$id=$_GET["id"];
+$name=$_POST["name"];
+$id=$_POST["id"];
 
 $database='record';
 $server='localhost';

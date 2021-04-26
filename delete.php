@@ -1,7 +1,7 @@
 <?php
 // $response=array();
 
-$name=$_GET["name"];
+$name=$_POST["name"];
 
 $database='record';
 $server='localhost';

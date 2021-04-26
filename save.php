@@ -1,9 +1,9 @@
 <?php
 // $response=array();
 
-$id=$_GET["id"];
-$name=$_GET["name"];
-$marks=$_GET["marks"];
+$id=$_POST["id"];
+$name=$_POST["name"];
+$marks=$_POST["marks"];
 
 $database='record';
 $server='localhost';
@@ -25,7 +25,7 @@ if($result)
 {
     echo "<script>alert('New Record Added');</script>";
 //     $response["success"]=1;
-//     $response["message"]="result saved";
+//     $response["message"]="result saved"; 
 //     echo json_encode($response);
 }
 else
